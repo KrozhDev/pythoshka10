@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 8: Интерактивность - управление черепашкой</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #006064;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #00838f;
+      border-bottom: 2px solid #00838f;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .legend {
+      background-color: #b2ebf2;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0097a7;
+    }
+    .code-block {
+      background-color: #263238;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 20px 0;
+    }
+    .task {
+      background-color: #e1f5fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0288d1;
+    }
+    .crystal {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #388e3c;
+    }
+    .bonus {
+      background-color: #fff8e1;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ffa000;
+    }
+    .header-image {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .keyboard {
+      font-size: 1.5em;
+      background-color: #f5f5f5;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      margin: 0 3px;
+    }
+    .star {
+      color: #ffd600;
+      font-size: 2em;
+      text-shadow: 0 0 5px #ff6d00;
+    }
+    .circle {
+      color: #2196f3;
+      font-size: 2em;
+      text-shadow: 0 0 5px #0d47a1;
+    }
+  </style>
+</head>
+<body>
+<img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🎮</span> УРОК 8: ИНТЕРАКТИВНОСТЬ - УПРАВЛЕНИЕ ЧЕРЕПАШКОЙ</h2>
+
+<div class="legend">
+  <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+  <p>Питоша почти восстановила свои силы! Теперь она может слушать твои команды с клавиатуры и выполнять их мгновенно!</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("lightgreen")
+экран.title("Управляй черепашкой!")
+
+питоша.shape("turtle")
+питоша.color("blue")
+питоша.speed(0)
+питоша.pensize(3)
+
+# Функции для управления черепашкой
+def вперед():
+    питоша.forward(10)
+
+def назад():
+    питоша.backward(10)
+
+def влево():
+    питоша.left(15)
+
+def вправо():
+    питоша.right(15)
+
+def очистить():
+    питоша.clear()
+    питоша.penup()
+    питоша.home()  # Возвращаемся в центр
+    питоша.pendown()
+
+def поднять_перо():
+    питоша.penup()
+
+def опустить_перо():
+    питоша.pendown()
+
+# Привязываем функции к клавишам
+экран.listen()  # Начинаем слушать клавиатуру
+экран.onkey(вперед, "Up")  # Стрелка вверх
+экран.onkey(назад, "Down")  # Стрелка вниз
+экран.onkey(влево, "Left")  # Стрелка влево
+экран.onkey(вправо, "Right")  # Стрелка вправо
+экран.onkey(очистить, "c")  # Клавиша C - очистить
+экран.onkey(поднять_перо, "u")  # Клавиша U - поднять перо
+экран.onkey(опустить_перо, "d")  # Клавиша D - опустить перо
+
+# Пишем инструкцию
+питоша.penup()
+питоша.goto(-200, 200)
+питоша.write("Используй стрелки для движения, C - очистить, U - поднять перо, D - опустить перо",
+             font=("Arial", 12, "normal"))
+питоша.goto(0, 0)
+питоша.pendown()
+
+# Запускаем игру
+экран.mainloop()</pre>
+</div>
+
+<div class="task">
+  <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+  <p>Добавь новые команды: изменение цвета черепашки по нажатию клавиш <span class="keyboard">R</span> (красный), <span class="keyboard">G</span> (зелёный), <span class="keyboard">B</span> (синий).</p>
+</div>
+
+<div class="crystal">
+  <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+  <ul>
+    <li><code>экран.listen()</code> - начинает слушать клавиатуру</li>
+    <li><code>экран.onkey(функция, "клавиша")</code> - привязывает функцию к клавише</li>
+    <li><code>экран.mainloop()</code> - запускает бесконечный цикл ожидания команд</li>
+  </ul>
+</div>
+
+<div class="bonus">
+  <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+  <p>Добавь команду для рисования звезды <span class="star">⭐</span> по нажатию клавиши <span class="keyboard">S</span> и команду для рисования круга <span class="circle">⭕</span> по нажатию клавиши <span class="keyboard">O</span>!</p>
+</div>
+</body>
+</html>
+

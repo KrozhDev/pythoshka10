@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 5: Заливка цветом</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #006064;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #00838f;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .legend {
+            background-color: #b2ebf2;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0097a7;
+        }
+        .code-block {
+            background-color: #263238;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        .task {
+            background-color: #e1f5fe;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0288d1;
+        }
+        .crystal {
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #388e3c;
+        }
+        .bonus {
+            background-color: #fff8e1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ffa000;
+        }
+        .header-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .house {
+            font-size: 2em;
+            color: #795548;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .rainbow {
+            font-size: 2em;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+<img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🎨</span> УРОК 5: ЗАЛИВКА ЦВЕТОМ</h2>
+
+<div class="legend">
+    <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+    <p>Питоша обнаружила, что может не только оставлять следы, но и заполнять области волшебным цветом! Это придаст её рисункам ещё больше магии.</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("white")
+
+питоша.shape("turtle")
+питоша.speed(8)
+
+# Начинаем заливку
+питоша.fillcolor("yellow")  # Выбираем цвет заливки
+питоша.begin_fill()  # Начинаем запоминать фигуру для заливки
+
+# Рисуем треугольник
+for i in range(3):
+    питоша.forward(100)
+    питоша.left(120)
+
+питоша.end_fill()  # Заканчиваем и заливаем
+
+# Рисуем ещё одну фигуру с заливкой
+питоша.penup()
+питоша.goto(150, 0)
+питоша.pendown()
+
+питоша.fillcolor("red")
+питоша.begin_fill()
+питоша.circle(50)  # Круг радиусом 50
+питоша.end_fill()
+
+turtle.done()</pre>
+</div>
+
+<div class="task">
+    <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+    <p>Нарисуй домик с цветной крышей и стенами! <span class="house">🏠</span> Используй разные цвета для заливки.</p>
+</div>
+
+<div class="crystal">
+    <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+    <ul>
+        <li><code>fillcolor()</code> - выбирает цвет для заливки</li>
+        <li><code>begin_fill()</code> - начинает запоминать фигуру для заливки</li>
+        <li><code>end_fill()</code> - заканчивает запоминание и заливает фигуру</li>
+    </ul>
+</div>
+
+<div class="bonus">
+    <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+    <p>Нарисуй радугу из разноцветных дуг с заливкой! <span class="rainbow">🌈</span> Подсказка: используй <code>circle()</code> с разными радиусами и углами.</p>
+</div>
+</body>
+</html>

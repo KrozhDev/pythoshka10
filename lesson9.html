@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9: Создаём мини-раскраску</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #006064;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #00838f;
+      border-bottom: 2px solid #00838f;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .legend {
+      background-color: #b2ebf2;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0097a7;
+    }
+    .code-block {
+      background-color: #263238;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 20px 0;
+    }
+    .task {
+      background-color: #e1f5fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0288d1;
+    }
+    .crystal {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #388e3c;
+    }
+    .bonus {
+      background-color: #fff8e1;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ffa000;
+    }
+    .header-image {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .coloring {
+      font-size: 2em;
+      background: linear-gradient(to right, #ff5252, #ffeb3b, #69f0ae, #40c4ff, #7c4dff);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+    .palette {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    .color-sample {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid white;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+    .red { background-color: #f44336; }
+    .blue { background-color: #2196f3; }
+    .green { background-color: #4caf50; }
+    .yellow { background-color: #ffeb3b; }
+    .purple { background-color: #9c27b0; }
+  </style>
+</head>
+<body>
+<img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🎨</span> УРОК 9: СОЗДАЁМ МИНИ-РАСКРАСКУ</h2>
+
+<div class="legend">
+  <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+  <p>Питоша почти восстановила все свои силы! Для последнего рывка ей нужно создать волшебную раскраску <span class="coloring">🎨</span>, которая поможет собрать оставшиеся кристаллы силы.</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.setup(800, 600)  # Размер окна
+экран.bgcolor("white")
+экран.title("Волшебная раскраска")
+
+питоша.hideturtle()  # Скрываем черепашку, чтобы не мешала
+питоша.speed(0)
+питоша.pensize(2)
+
+# Рисуем контуры для раскраски
+def рисовать_цветок():
+    # Рисуем стебель
+    питоша.penup()
+    питоша.goto(0, -100)
+    питоша.pendown()
+    питоша.color("black")
+    питоша.setheading(90)  # Направление вверх
+    питоша.forward(200)
+
+    # Рисуем центр цветка
+    питоша.penup()
+    питоша.goto(0, 150)
+    питоша.pendown()
+    питоша.circle(30)
+
+    # Рисуем лепестки
+    for i in range(8):
+        питоша.penup()
+        питоша.goto(0, 150)
+        питоша.pendown()
+        питоша.setheading(i * 45)  # Поворачиваемся на 45 градусов * i
+        питоша.forward(80)
+        питоша.circle(20)
+
+# Функция для заливки области цветом
+def заливка(x, y):
+    # Определяем, куда кликнул пользователь
+    питоша.penup()
+    питоша.goto(x, y)
+
+    # Выбираем цвет в зависимости от области
+    if y > 150 and ((x**2 + (y-150)**2) < 900):  # Центр цветка
+        цвет = "yellow"
+    elif y > 100:  # Лепестки
+        цвет = "pink"
+    elif y < 0:  # Земля
+        цвет = "brown"
+    else:  # Стебель
+        цвет = "green"
+
+    # Заливаем
+    питоша.fillcolor(цвет)
+    питоша.begin_fill()
+    питоша.circle(10)  # Маленький круг для заливки
+    питоша.end_fill()
+
+# Рисуем контур
+рисовать_цветок()
+
+# Рисуем землю
+питоша.penup()
+питоша.goto(-300, -100)
+питоша.pendown()
+питоша.setheading(0)
+питоша.forward(600)
+
+# Добавляем инструкцию
+питоша.penup()
+питоша.goto(-250, 250)
+питоша.write("Кликни в разных частях рисунка, чтобы раскрасить их!",
+             font=("Arial", 14, "normal"))
+
+# Привязываем функцию к клику мыши
+экран.onclick(заливка)
+
+# Запускаем игру
+экран.mainloop()</pre>
+</div>
+
+<div class="task">
+  <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+  <p>Добавь возможность выбирать цвет перед раскрашиванием! Создай кнопки разных цветов в верхней части экрана.</p>
+  <div class="palette">
+    <span class="color-sample red"></span>
+    <span class="color-sample blue"></span>
+    <span class="color-sample green"></span>
+    <span class="color-sample yellow"></span>
+    <span class="color-sample purple"></span>
+  </div>
+</div>
+
+<div class="crystal">
+  <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+  <ul>
+    <li><code>экран.onclick(функция)</code> - привязывает функцию к клику мыши</li>
+    <li><code>hideturtle()</code> - скрывает черепашку</li>
+    <li><code>setheading(угол)</code> - устанавливает направление черепашки</li>
+  </ul>
+</div>
+
+<div class="bonus">
+  <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+  <p>Добавь кнопку "Очистить" и "Новый рисунок", чтобы можно было начать раскраску заново или выбрать другой рисунок!</p>
+</div>
+</body>
+</html>

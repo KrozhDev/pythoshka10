@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 2: Разноцветные следы</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #006064;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #00838f;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .legend {
+            background-color: #b2ebf2;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0097a7;
+        }
+        .code-block {
+            background-color: #263238;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        .task {
+            background-color: #e1f5fe;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #0288d1;
+        }
+        .crystal {
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #388e3c;
+        }
+        .bonus {
+            background-color: #fff8e1;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ffa000;
+        }
+        .header-image {
+            width: 30%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+
+            /* Центрируем по горизонтали */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .rainbow {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<img src="pngwing.com.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🌈</span> УРОК 2: РАЗНОЦВЕТНЫЕ СЛЕДЫ</h2>
+
+<div class="legend">
+    <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+    <p>Питоша вспомнила, что может оставлять волшебные следы! Эти следы помогут ей восстановить часть сил. Но для этого следы должны быть разноцветными!</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("black")  # Чёрный фон для яркости цветов
+
+питоша.shape("turtle")
+питоша.width(5)  # Толщина следа
+
+# Рисуем разноцветные линии
+питоша.color("red")
+питоша.forward(100)
+
+питоша.color("orange")
+питоша.left(90)
+питоша.forward(100)
+
+питоша.color("yellow")
+питоша.left(90)
+питоша.forward(100)
+
+питоша.color("green")
+питоша.left(90)
+питоша.forward(100)
+
+turtle.done()</pre>
+</div>
+
+<div class="task">
+    <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+    <p>Помоги Питоше нарисовать разноцветный квадрат, чтобы собрать первый кристалл силы!</p>
+</div>
+
+<div class="crystal">
+    <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+    <ul>
+        <li><code>color()</code> - меняет цвет черепашки и её следа</li>
+        <li><code>width()</code> - меняет толщину следа</li>
+        <li><code>left()</code> - поворот налево</li>
+    </ul>
+</div>
+
+<div class="bonus">
+    <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+    <p>Нарисуй радугу из 7 цветов! Подсказка: <span class="rainbow">красный, оранжевый, жёлтый, зелёный, голубой, синий, фиолетовый</span>.</p>
+</div>
+</body>
+</html>

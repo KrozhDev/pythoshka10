@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4: Волшебные циклы</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #006064;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #00838f;
+      border-bottom: 2px solid #00838f;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .legend {
+      background-color: #b2ebf2;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0097a7;
+    }
+    .code-block {
+      background-color: #263238;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 20px 0;
+    }
+    .task {
+      background-color: #e1f5fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0288d1;
+    }
+    .crystal {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #388e3c;
+    }
+    .bonus {
+      background-color: #fff8e1;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ffa000;
+    }
+    .header-image {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .sun {
+      color: #ffd600;
+      font-size: 2em;
+      text-shadow: 0 0 10px #ff6d00;
+    }
+    .flower {
+      color: #f06292;
+      font-size: 2em;
+      text-shadow: 0 0 5px #880e4f;
+    }
+  </style>
+</head>
+<body>
+<img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🔄</span> УРОК 4: ВОЛШЕБНЫЕ ЦИКЛЫ</h2>
+
+<div class="legend">
+  <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+  <p>Питоша нашла древний свиток с заклинанием повторения! Теперь она может повторять действия много раз без усталости. Это поможет ей быстрее восстановить силы!</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("lightyellow")
+
+питоша.shape("turtle")
+питоша.color("blue")
+питоша.speed(8)
+
+# Волшебный цикл для рисования квадрата
+for i in range(4):
+    питоша.forward(100)
+    питоша.right(90)
+
+# Перемещаемся в новое место
+питоша.penup()
+питоша.goto(-150, -150)
+питоша.pendown()
+
+# Волшебный цикл для рисования звезды
+питоша.color("red")
+for i in range(5):
+    питоша.forward(100)
+    питоша.right(144)
+
+turtle.done()</pre>
+</div>
+
+<div class="task">
+  <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+  <p>Используй волшебный цикл, чтобы нарисовать солнышко (круг с лучиками)! <span class="sun">☀️</span></p>
+</div>
+
+<div class="crystal">
+  <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+  <ul>
+    <li><code>for i in range(число):</code> - повторяет действия указанное число раз</li>
+    <li>Внутри цикла все команды должны быть с отступом</li>
+  </ul>
+</div>
+
+<div class="bonus">
+  <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+  <p>Нарисуй цветок с помощью циклов! <span class="flower">🌸</span> Подсказка: можно нарисовать несколько кругов, поворачиваясь после каждого.</p>
+</div>
+</body>
+</html>

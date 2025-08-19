@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Черепашья Академия 🐢</title>
+    <!-- Убраны пробелы в URL -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.1.10/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.1.10/dist/skulpt-stdlib.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.1.10/dist/turtle.js"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00695c;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #editor {
+            width: 90%;
+            height: 200px;
+            font-size: 16px;
+            border: 3px solid #00bcd4;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre;
+        }
+
+        button {
+            background: #00bcd4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #0097a7;
+        }
+
+        #canvas {
+            border: 3px solid #0097a7;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .task {
+            background: #b2dfdb;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+<h1>🐢 Черепашья Академия</h1>
+<p>Напиши код на Python и посмотри, как черепашка рисует!</p>
+
+<div class="task">
+    <h3>Задание 1: Нарисуй квадрат</h3>
+    <p>Используй <code>t.forward(100)</code> и <code>t.left(90)</code>. Повтори 4 раза!</p>
+</div>
+
+<div class="container">
+    <!-- Добавлены правильные переносы строк -->
+    <textarea id="editor" spellcheck="false">import turtle
+t = turtle.Turtle()
+# Нарисуй квадрат здесь
+for i in range(4):
+    t.forward(100)
+    t.left(90)
+</textarea>
+    <button onclick="runCode()">Запустить! ▶️</button>
+    <button onclick="clearCanvas()">Очистить 🧹</button>
+</div>
+
+<canvas id="canvas" width="600" height="400"></canvas>
+
+<script>
+    // Настройка Skulpt при загрузке страницы
+    function setupSkulpt() {
+        Sk.HTMLElements = false;
+        Sk.canvas = "canvas";
+        Sk.configure({
+            output: function(text) {
+                // Можно выводить в консоль или отдельный div
+                console.log(text);
+            },
+            read: function(filename) {
+                if (Sk.builtinFiles && Sk.builtinFiles.files[filename]) {
+                    return Sk.builtinFiles.files[filename];
+                }
+                throw "File not found: " + filename;
+            },
+            __future__: "python3"
+        });
+    }
+
+    function runCode() {
+        const code = document.getElementById("editor").value;
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Убедимся, что Skulpt настроен
+        setupSkulpt();
+
+        // Очистка предыдущего состояния
+        Sk.canvas = "canvas";
+        Sk.turtle.reset();
+
+        try {
+            // Запуск кода
+            Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, code, true))
+                .then(() => console.log("Код выполнен"))
+                .catch(err => {
+                    alert("Ошибка: " + err);
+                    console.error(err);
+                });
+        } catch (e) {
+            alert("Ошибка выполнения: " + e.message);
+        }
+    }
+
+    function clearCanvas() {
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (Sk.turtle) {
+            Sk.turtle.reset();
+        }
+    }
+
+    // Первый запуск при загрузке страницы
+    window.onload = function () {
+        setupSkulpt();
+        runCode();
+    };
+</script>
+</body>
+</html>

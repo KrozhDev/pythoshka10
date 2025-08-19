@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест "Приключения волшебной черепашки"</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #006064;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #00838f;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .intro {
+            background-color: #b2ebf2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #0097a7;
+        }
+        .lesson-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .lesson-item {
+            background-color: #e1f5fe;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #0288d1;
+            transition: transform 0.3s ease;
+        }
+        .lesson-item:hover {
+            transform: translateX(10px);
+            background-color: #b3e5fc;
+        }
+        .lesson-link {
+            text-decoration: none;
+            color: #0277bd;
+            font-weight: bold;
+            display: block;
+            cursor: pointer;
+        }
+        .lesson-description {
+            margin-top: 5px;
+            color: #555;
+        }
+        .header-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #006064;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed #00838f;
+            color: #00838f;
+        }
+        /* Стили для модального окна с паролем */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .password-input {
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #00838f;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .password-button {
+            background-color: #00838f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .password-button:hover {
+            background-color: #006064;
+        }
+        .error-message {
+            color: #f44336;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- Заменяем внешнее изображение на встроенное изображение или цветной блок -->
+<div class="header-image">
+    <svg width="100%" height="250" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#006064"/>
+        <text x="50%" y="50%" font-family="Comic Sans MS" font-size="32" fill="white" text-anchor="middle" dominant-baseline="middle">Волшебная черепашка 🐢</text>
+    </svg>
+</div>
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<div class="intro">
+    <h2><span class="emoji">🎮</span> ВВЕДЕНИЕ В КВЕСТ</h2>
+    <p>Привет, юный волшебник кода! 🧙‍♂️ Ты готов отправиться в удивительное путешествие по миру программирования? Наша волшебная черепашка Питоша потеряла свои магические силы, и только ТЫ можешь помочь ей вернуть их!</p>
+    <p>На каждом уроке мы будем открывать новые заклинания (команды) и собирать кристаллы силы (знания), которые помогут Питоше снова стать самой могущественной черепашкой-волшебницей! 🔮</p>
+    <p>Готов начать? Тогда выбирай урок и вперёд! 🚀</p>
+</div>
+
+<h2><span class="emoji">📚</span> УРОКИ КВЕСТА</h2>
+
+<ul class="lesson-list">
+    <li class="lesson-item">
+        <a href="lesson1.html" class="lesson-link">🔮 Урок 1: Первая встреча с волшебной черепашкой</a>
+        <p class="lesson-description">Знакомство с черепашкой Питошей и первые шаги в программировании.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(2)" class="lesson-link">🌈 Урок 2: Разноцветные следы</a>
+        <p class="lesson-description">Учимся рисовать разноцветные линии и фигуры.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(3)" class="lesson-link">🏃‍♀️ Урок 3: Скорость и перемещение</a>
+        <p class="lesson-description">Управляем скоростью черепашки и учимся телепортироваться.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(4)" class="lesson-link">🔄 Урок 4: Волшебные циклы</a>
+        <p class="lesson-description">Используем циклы для повторения действий и создания сложных фигур.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(5)" class="lesson-link">🎨 Урок 5: Заливка цветом</a>
+        <p class="lesson-description">Учимся заполнять фигуры цветом для создания красивых рисунков.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(6)" class="lesson-link">🎭 Урок 6: Случайность и хаос</a>
+        <p class="lesson-description">Создаем непредсказуемые узоры с помощью случайных чисел.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(7)" class="lesson-link">🏠 Урок 7: Функции - волшебные свитки</a>
+        <p class="lesson-description">Создаем собственные функции для повторного использования кода.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(8)" class="lesson-link">🎮 Урок 8: Интерактивность - управление черепашкой</a>
+        <p class="lesson-description">Учимся управлять черепашкой с помощью клавиатуры.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(9)" class="lesson-link">🎨 Урок 9: Создаём мини-раскраску</a>
+        <p class="lesson-description">Создаем интерактивную раскраску с помощью кликов мыши.</p>
+    </li>
+
+    <li class="lesson-item">
+        <a onclick="showPasswordModal(10)" class="lesson-link">🏆 Урок 10: Финальное испытание - игра с черепашкой</a>
+        <p class="lesson-description">Создаем настоящую игру, где черепашка собирает кристаллы и избегает опасностей.</p>
+    </li>
+</ul>
+
+<!-- Модальное окно для ввода пароля -->
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <h3>Введите заклинание для доступа</h3>
+        <input type="password" id="passwordInput" class="password-input" placeholder="Введите заклинание...">
+        <p id="errorMessage" class="error-message">Заклинание не сработало.</p>
+        <button id="submitPassword" class="password-button">Открыть урок</button>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Удачи в твоих приключениях, юный волшебник кода! 🧙‍♂️✨</p>
+    <p>© 2025 Квест "Приключения волшебной черепашки" Рожков Константин Олегович</p>
+</div>
+
+<script>
+    // Пароли для каждого урока (скрыты от пользователя в JavaScript)
+    const passwords = {
+        2: "rainbow", // Пароль для урока 2
+        3: "teleport", // Пароль для урока 3
+        4: "loop", // Пароль для урока 4
+        5: "color", // Пароль для урока 5
+        6: "random", // Пароль для урока 6
+        7: "function", // Пароль для урока 7
+        8: "keyboard", // Пароль для урока 8
+        9: "paint", // Пароль для урока 9
+        10: "game" // Пароль для урока 10
+    };
+
+    let currentLesson = 0;
+
+    // Функция для отображения модального окна
+    function showPasswordModal(lessonNumber) {
+        currentLesson = lessonNumber;
+        document.getElementById('passwordModal').style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('errorMessage').style.display = 'none';
+        document.getElementById('passwordInput').focus();
+    }
+
+    // Функция для проверки пароля
+    function checkPassword() {
+        const password = document.getElementById('passwordInput').value;
+        if (password === passwords[currentLesson]) {
+            // Если пароль верный, перенаправляем на страницу урока
+            window.location.href = `lesson${currentLesson}.html`;
+        } else {
+            // Если пароль неверный, показываем сообщение об ошибке
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+    }
+
+    // Обработчик нажатия кнопки "Открыть урок"
+    document.getElementById('submitPassword').addEventListener('click', checkPassword);
+
+    // Обработчик нажатия Enter в поле ввода пароля
+    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+
+    // Закрытие модального окна при клике вне его области
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('passwordModal')) {
+            document.getElementById('passwordModal').style.display = 'none';
+        }
+    };
+</script>
+</body>
+</html>

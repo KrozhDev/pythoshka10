@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3: Скорость и перемещение</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #006064;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #00838f;
+      border-bottom: 2px solid #00838f;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .legend {
+      background-color: #b2ebf2;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0097a7;
+    }
+    .code-block {
+      background-color: #263238;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 20px 0;
+    }
+    .task {
+      background-color: #e1f5fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0288d1;
+    }
+    .crystal {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #388e3c;
+    }
+    .bonus {
+      background-color: #fff8e1;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ffa000;
+    }
+    .header-image {
+      width: 30%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+
+      /* Центрируем по горизонтали */
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .smiley {
+      font-size: 2em;
+      color: #ffd600;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+<img src="pngwing.com.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🏃‍♀️</span> УРОК 3: СКОРОСТЬ И ПЕРЕМЕЩЕНИЕ</h2>
+
+<div class="legend">
+  <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+  <p>Питоша чувствует прилив сил! Теперь она может двигаться быстрее и даже телепортироваться по экрану! Это поможет ей быстрее собирать кристаллы силы.</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("lightgreen")
+
+питоша.shape("turtle")
+питоша.color("purple")
+
+# Настраиваем скорость (1-самая медленная, 10-очень быстрая)
+питоша.speed(1)  # Сначала медленно
+питоша.forward(100)
+
+питоша.speed(10)  # Теперь быстро!
+питоша.forward(100)
+
+# Телепортация (перемещение без следа)
+питоша.penup()  # Поднимаем волшебное перо
+питоша.goto(-150, 50)  # Перемещаемся в новое место
+питоша.pendown()  # Опускаем перо, чтобы снова рисовать
+
+питоша.circle(50)  # Рисуем круг радиусом 50
+
+turtle.done()</pre>
+</div>
+
+<div class="task">
+  <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+  <p>Помоги Питоше нарисовать смайлик! <span class="smiley">😊</span> Сначала круг для лица, потом телепортируйся и нарисуй глаза и рот.</p>
+</div>
+
+<div class="crystal">
+  <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+  <ul>
+    <li><code>speed()</code> - меняет скорость черепашки</li>
+    <li><code>penup()</code> - поднимает перо (не оставляет след)</li>
+    <li><code>pendown()</code> - опускает перо (оставляет след)</li>
+    <li><code>goto(x, y)</code> - телепортация в указанные координаты</li>
+    <li><code>circle()</code> - рисует круг</li>
+  </ul>
+</div>
+
+<div class="bonus">
+  <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+  <p>Нарисуй два смайлика: один весёлый <span class="smiley">😊</span>, другой грустный <span class="smiley">😢</span>. Используй телепортацию, чтобы перемещаться между ними!</p>
+</div>
+</body>
+</html>

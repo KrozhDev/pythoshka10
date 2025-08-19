@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 7: Функции - волшебные свитки</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #006064;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+      color: #00838f;
+      border-bottom: 2px solid #00838f;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .legend {
+      background-color: #b2ebf2;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0097a7;
+    }
+    .code-block {
+      background-color: #263238;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      margin: 20px 0;
+    }
+    .task {
+      background-color: #e1f5fe;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #0288d1;
+    }
+    .crystal {
+      background-color: #e8f5e9;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #388e3c;
+    }
+    .bonus {
+      background-color: #fff8e1;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ffa000;
+    }
+    .header-image {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .scroll {
+      color: #795548;
+      font-size: 2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .flower {
+      color: #e91e63;
+      font-size: 2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .tree {
+      color: #4caf50;
+      font-size: 2em;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+<img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
+
+<h1>🌟 КВЕСТ "ПРИКЛЮЧЕНИЯ ВОЛШЕБНОЙ ЧЕРЕПАШКИ" 🐢✨</h1>
+
+<h2><span class="emoji">🏠</span> УРОК 7: ФУНКЦИИ - ВОЛШЕБНЫЕ СВИТКИ</h2>
+
+<div class="legend">
+  <h3><span class="emoji">📜</span> ЛЕГЕНДА:</h3>
+  <p>Питоша нашла способ создавать собственные волшебные свитки с заклинаниями (функции)! <span class="scroll">📜</span> Теперь она может записать сложное заклинание один раз и использовать его много раз.</p>
+</div>
+
+<h3><span class="emoji">🧙‍♂️</span> НОВЫЕ ЗАКЛИНАНИЯ:</h3>
+<div class="code-block">
+        <pre>import turtle
+
+питоша = turtle.Turtle()
+экран = turtle.Screen()
+экран.bgcolor("lightblue")
+
+питоша.shape("turtle")
+питоша.speed(8)
+
+# Создаём волшебный свиток "нарисовать домик"
+def нарисовать_домик(размер, цвет):
+    питоша.color(цвет)
+
+    # Рисуем квадрат (основа дома)
+    питоша.fillcolor(цвет)
+    питоша.begin_fill()
+    for i in range(4):
+        питоша.forward(размер)
+        питоша.left(90)
+    питоша.end_fill()
+
+    # Рисуем крышу
+    питоша.fillcolor("red")
+    питоша.begin_fill()
+    питоша.left(45)
+    питоша.forward(размер / 1.4)
+    питоша.right(90)
+    питоша.forward(размер / 1.4)
+    питоша.end_fill()
+
+    # Возвращаемся в исходное положение
+    питоша.right(135)
+
+# Используем наш волшебный свиток несколько раз
+нарисовать_домик(100, "blue")
+
+питоша.penup()
+питоша.goto(-150, -150)
+питоша.pendown()
+
+нарисовать_домик(50, "green")
+
+питоша.penup()
+питоша.goto(150, -100)
+питоша.pendown()
+
+нарисовать_домик(75, "purple")
+
+turtle.done()</pre>
+</div>
+
+<div class="task">
+  <h3><span class="emoji">🎯</span> ЗАДАНИЕ:</h3>
+  <p>Создай волшебный свиток "нарисовать цветок" <span class="flower">🌸</span> и используй его, чтобы нарисовать поляну из разноцветных цветов!</p>
+</div>
+
+<div class="crystal">
+  <h3><span class="emoji">💎</span> КРИСТАЛЛ ЗНАНИЙ:</h3>
+  <ul>
+    <li><code>def имя_функции(параметры):</code> - создаёт новую функцию</li>
+    <li>Внутри функции все команды должны быть с отступом</li>
+    <li>Функцию можно вызывать много раз с разными параметрами</li>
+  </ul>
+</div>
+
+<div class="bonus">
+  <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
+  <p>Создай волшебный свиток "нарисовать дерево" <span class="tree">🌳</span> и используй его, чтобы создать лес из деревьев разного размера!</p>
+</div>
+</body>
+</html>
