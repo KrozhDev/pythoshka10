@@ -5,67 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Квест "Приключения волшебной черепашки"</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
             background-color: #e0f7fa;
             color: #333;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
+            font-size: 16px;
         }
+        
         h1 {
             color: #006064;
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            word-wrap: break-word;
         }
+        
         h2 {
             color: #00838f;
             border-bottom: 2px solid #00838f;
             padding-bottom: 5px;
             margin-top: 30px;
+            font-size: 1.8em;
         }
+        
         .emoji {
             font-size: 1.5em;
             margin-right: 10px;
             vertical-align: middle;
         }
+        
         .intro {
             background-color: #b2ebf2;
             border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
             border-left: 5px solid #0097a7;
+            font-size: 1.1em;
         }
+        
         .lesson-list {
             list-style-type: none;
             padding: 0;
         }
+        
         .lesson-item {
             background-color: #e1f5fe;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
             border-left: 5px solid #0288d1;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+        
         .lesson-item:hover {
             transform: translateX(10px);
             background-color: #b3e5fc;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+        
         .lesson-link {
             text-decoration: none;
             color: #0277bd;
             font-weight: bold;
             display: block;
             cursor: pointer;
+            font-size: 1.3em;
+            padding: 10px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
         }
+        
         .lesson-description {
-            margin-top: 5px;
+            margin-top: 10px;
             color: #555;
+            font-size: 1.1em;
+            line-height: 1.5;
         }
+        
         .header-image {
             width: 100%;
             max-height: 250px;
@@ -74,60 +101,218 @@
             margin-bottom: 20px;
             background-color: #006064;
         }
+        
         .footer {
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
             border-top: 2px dashed #00838f;
             color: #00838f;
+            font-size: 1.1em;
         }
+        
         /* Стили для модального окна с паролем */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.6);
         }
+        
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
+            margin: 10% auto;
+            padding: 30px;
             border: 1px solid #888;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
             text-align: center;
         }
+        
         .password-input {
-            width: 70%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #00838f;
-            border-radius: 5px;
-            font-size: 16px;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 3px solid #00838f;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: inherit;
         }
+        
         .password-button {
             background-color: #00838f;
             color: white;
-            padding: 10px 15px;
+            padding: 15px 25px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            min-width: 150px;
         }
+        
         .password-button:hover {
             background-color: #006064;
+            transform: scale(1.05);
         }
+        
+        .password-button:active {
+            transform: scale(0.95);
+        }
+        
         .error-message {
             color: #f44336;
             display: none;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        /* Мобильные стили */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+                margin-top: 25px;
+            }
+            
+            .intro {
+                padding: 25px;
+                font-size: 1.2em;
+                margin: 25px 0;
+            }
+            
+            .lesson-item {
+                padding: 25px;
+                margin: 20px 0;
+                border-radius: 20px;
+            }
+            
+            .lesson-link {
+                font-size: 1.4em;
+                min-height: 70px;
+                padding: 15px 0;
+            }
+            
+            .lesson-description {
+                font-size: 1.2em;
+                margin-top: 15px;
+            }
+            
+            .footer {
+                font-size: 1.2em;
+                margin-top: 50px;
+            }
+            
+            .modal-content {
+                margin: 20% auto;
+                padding: 40px 30px;
+                width: 95%;
+            }
+            
+            .password-input {
+                padding: 20px;
+                font-size: 20px;
+                margin: 20px 0;
+            }
+            
+            .password-button {
+                padding: 20px 30px;
+                font-size: 20px;
+                min-width: 200px;
+            }
+            
+            .error-message {
+                font-size: 18px;
+                margin-top: 20px;
+            }
+        }
+        
+        /* Стили для очень маленьких экранов */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            .intro {
+                padding: 20px;
+                font-size: 1.1em;
+            }
+            
+            .lesson-item {
+                padding: 20px;
+            }
+            
+            .lesson-link {
+                font-size: 1.3em;
+                min-height: 60px;
+            }
+            
+            .lesson-description {
+                font-size: 1.1em;
+            }
+            
+            .modal-content {
+                margin: 15% auto;
+                padding: 30px 20px;
+            }
+            
+            .password-input {
+                padding: 18px;
+                font-size: 18px;
+            }
+            
+            .password-button {
+                padding: 18px 25px;
+                font-size: 18px;
+                min-width: 180px;
+            }
+        }
+        
+        /* Улучшения для касаний */
+        @media (hover: none) and (pointer: coarse) {
+            .lesson-item:hover {
+                transform: none;
+            }
+            
+            .lesson-item:active {
+                transform: scale(0.98);
+                background-color: #b3e5fc;
+            }
+            
+            .password-button:hover {
+                transform: none;
+            }
+            
+            .password-button:active {
+                transform: scale(0.95);
+            }
         }
     </style>
 </head>
@@ -241,6 +426,9 @@
         document.getElementById('passwordInput').value = '';
         document.getElementById('errorMessage').style.display = 'none';
         document.getElementById('passwordInput').focus();
+        
+        // Предотвращаем прокрутку страницы
+        document.body.style.overflow = 'hidden';
     }
 
     // Функция для проверки пароля
@@ -252,6 +440,7 @@
         } else {
             // Если пароль неверный, показываем сообщение об ошибке
             document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('passwordInput').focus();
         }
     }
 
@@ -269,8 +458,17 @@
     window.onclick = function(event) {
         if (event.target == document.getElementById('passwordModal')) {
             document.getElementById('passwordModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     };
+    
+    // Закрытие модального окна при нажатии Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('passwordModal').style.display === 'block') {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 </script>
 </body>
 </html>

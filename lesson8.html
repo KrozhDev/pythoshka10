@@ -6,6 +6,80 @@
   <title>Урок 8: Интерактивность - управление черепашкой</title>
   <style>
     body {
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            max-width: 1200px;
+            font-size: 16px;
+        }
+        
+        h1 {
+            word-wrap: break-word;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #0277bd;
+            margin-top: 25px;
+        }
+        
+        .legend, .task, .crystal, .bonus {
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            font-size: 1.1em;
+        }
+        
+        .code-block {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        
+        .header-image {
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .navigation {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .nav-button {
+            background-color: #00838f;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .nav-button:hover {
+            background-color: #006064;
+            transform: scale(1.05);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+    
       font-family: 'Comic Sans MS', cursive, sans-serif;
       background-color: #e0f7fa;
       color: #333;
@@ -95,7 +169,112 @@
       font-size: 2em;
       text-shadow: 0 0 5px #0d47a1;
     }
-  </style>
+  
+        /* Мобильные стили */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+                font-size: 18px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                margin-bottom: 15px;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+                margin-top: 25px;
+            }
+            
+            h3 {
+                font-size: 1.3em;
+                margin-top: 20px;
+            }
+            
+            .legend, .task, .crystal, .bonus {
+                padding: 25px;
+                margin: 30px 0;
+                font-size: 1.2em;
+                border-radius: 20px;
+            }
+            
+            .code-block {
+                padding: 25px;
+                margin: 30px 0;
+                font-size: 1.2em;
+                border-radius: 15px;
+            }
+            
+            .header-image {
+                width: 60%;
+                border-radius: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .nav-button {
+                padding: 20px 30px;
+                font-size: 20px;
+                margin: 10px 5px;
+                display: block;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        /* Стили для очень маленьких экранов */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+                font-size: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.4em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+            
+            .legend, .task, .crystal, .bonus {
+                padding: 20px;
+                font-size: 1.1em;
+            }
+            
+            .code-block {
+                padding: 20px;
+                font-size: 1.1em;
+            }
+            
+            .header-image {
+                width: 80%;
+            }
+            
+            .nav-button {
+                padding: 18px 25px;
+                font-size: 18px;
+            }
+        }
+        
+        /* Улучшения для касаний */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-button:hover {
+                transform: none;
+            }
+            
+            .nav-button:active {
+                transform: scale(0.95);
+            }
+        }
+    
+    </style>
 </head>
 <body>
 <img src="https://i.imgur.com/JfkXfLv.png" alt="Волшебная черепашка" class="header-image">
@@ -188,6 +367,12 @@ def опустить_перо():
   <h3><span class="emoji">🎁</span> БОНУСНОЕ ИСПЫТАНИЕ:</h3>
   <p>Добавь команду для рисования звезды <span class="star">⭐</span> по нажатию клавиши <span class="keyboard">S</span> и команду для рисования круга <span class="circle">⭕</span> по нажатию клавиши <span class="keyboard">O</span>!</p>
 </div>
+
+<div class="navigation">
+    <a href="index.html" class="nav-button">🏠 На главную</a>
+    <a href="lesson9.html" class="nav-button">➡️ Следующий урок</a>
+</div>
+
 </body>
 </html>
 
